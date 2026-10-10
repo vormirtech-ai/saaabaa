@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Saba Restaurant Suite · Saba</title>
+    <link rel="icon" href="../assets/saba-icon.png" type="image/png" />
+    <style>
+
+      :root {
+        --navy: #0c2340; --navy-deep: #06182e; --gold: #9a6213;
+        --gold-light: #c49a4a; --gold-tint: #f7f0e2;
+        --ground: #f3f0e9; --paper: #fffefb; --ink: #1d2733;
+        --ink-2: #4a5765; --ink-3: #78848f; --line: #e2ddd1;
+        --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua',
+          Georgia, 'Times New Roman', serif;
+        --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; background: var(--ground); color: var(--ink);
+        font: 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.2; }
+      a { color: var(--navy); }
+      code {
+        font: 13.5px ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+        background: var(--gold-tint); padding: 1px 5px; border-radius: 4px;
+      }
+
+      .hero {
+        background: radial-gradient(90% 80% at 50% 0%, #143256 0%, var(--navy-deep) 55%, #04121f 100%);
+        color: #e9eef5; text-align: center;
+        padding: 56px 20px 60px;
+      }
+      .hero__mark {
+        border-radius: 50%; filter: drop-shadow(0 16px 40px rgba(0, 0, 0, .45));
+      }
+      .hero h1 {
+        margin: 26px auto 0; max-width: 20ch; font-size: clamp(27px, 5vw, 44px);
+        color: #fff;
+      }
+      .hero__lead {
+        margin: 18px auto 0; max-width: 56ch;
+        color: rgba(233, 238, 245, .82); font-size: 16.5px;
+      }
+      .hero__actions { margin: 30px 0 0; display: flex; gap: 11px; justify-content: center; flex-wrap: wrap; }
+      .hero__note { margin: 20px auto 0; max-width: 52ch; font-size: 13.5px; color: rgba(233, 238, 245, .6); }
+      .hero__note b { color: var(--gold-light); }
+
+      .btn {
+        display: inline-block; padding: 12px 22px; border-radius: 999px;
+        font-weight: 600; font-size: 15px; text-decoration: none;
+        color: #e9eef5; border: 1px solid rgba(233, 238, 245, .3);
+        transition: background .15s, border-color .15s, transform .12s;
+      }
+      .btn:hover { background: rgba(233, 238, 245, .1); border-color: var(--gold-light); }
+      .btn:active { transform: scale(.98); }
+      .btn--gold {
+        background: var(--gold-light); border-color: var(--gold-light); color: var(--navy-deep);
+      }
+      .btn--gold:hover { background: #d4ab5d; border-color: #d4ab5d; }
+
+      main { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+      .band { padding: 56px 0 8px; }
+      .band--quiet { border-top: 1px solid var(--line); }
+      .band h2 { font-size: 27px; margin: 0 0 24px; }
+      .lede { max-width: 66ch; color: var(--ink-2); }
+
+      .grid {
+        display: grid; gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      }
+      .card {
+        background: var(--paper); border: 1px solid var(--line);
+        border-radius: 14px; padding: 20px 22px;
+      }
+      .card h3 {
+        margin: 0 0 7px; font-size: 18px; color: var(--navy);
+      }
+      .card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+
+      .facts { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); margin: 0; }
+      .facts dt { font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+      .facts dd { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+
+      pre {
+        background: var(--navy-deep); color: #e9eef5; padding: 15px 18px;
+        border-radius: 11px; overflow-x: auto; max-width: 44ch;
+      }
+      pre code { background: none; color: inherit; font-size: 14px; }
+
+      footer {
+        margin-top: 56px; padding: 26px 20px 40px;
+        border-top: 1px solid var(--line); text-align: center;
+      }
+      footer p { margin: 0 auto; max-width: 60ch; font-size: 13px; color: var(--ink-3); }
+  
+      body { background: var(--paper); }
+      .doc { max-width: 76ch; margin: 0 auto; padding: 28px 20px 72px; }
+      .doc h1 { font-size: clamp(27px, 4.5vw, 38px); margin: 26px 0 8px; }
+      .doc h2 { font-size: 24px; margin: 42px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
+      .doc h3 { font-size: 18px; margin: 28px 0 6px; color: var(--navy); }
+      .doc p, .doc li { color: var(--ink-2); }
+      .doc li { margin: 4px 0; }
+      .doc table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14.5px; }
+      .doc th, .doc td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      .doc th { color: var(--navy); font-family: var(--serif); }
+      .doc pre { max-width: none; }
+      .doc hr { border: none; border-top: 1px solid var(--line); margin: 34px 0; }
+      /* A rule in the source followed by a section heading would draw twice. */
+      .doc hr + h2 { border-top: none; padding-top: 0; margin-top: 10px; }
+      .doc blockquote { margin: 0; padding-left: 16px; border-left: 3px solid var(--gold-light); color: var(--ink-3); }
+      .crumb { display: inline-block; margin-bottom: 6px; font-size: 13px; color: var(--ink-3); text-decoration: none; }
+      .crumb:hover { color: var(--navy); }
+    </style>
+  </head>
+  <body>
+    <article class="doc">
+      <a class="crumb" href="../">← Saba</a>
+<p>&lt;div align="center"&gt; &lt;img src="app/assets/saba-logo.png" alt="Saba Fine Dine" width="160"&gt;</p>
+<p>&lt;h1&gt;Saba Restaurant Suite&lt;/h1&gt; &lt;p&gt;&lt;strong&gt;Billing, kitchen order tickets and floor management for fine dining.&lt;/strong&gt;&lt;br&gt; Runs on the restaurant's own network. No internet, no subscription, no dependencies.&lt;/p&gt; &lt;/div&gt;</p>
+<hr />
+<h2 id="what-it-is">What it is</h2>
+<p>One small server on a computer in the back office, and a browser on every screen in the building: the captain's tablet, the pass in the kitchen, the till at the front, the manager's laptop. They all read and write the same tables at the same time. Unplug the internet and nothing changes.</p>
+<p>It is written in plain JavaScript against Node's own standard library. There are <strong>no runtime dependencies at all</strong> — nothing to <code>npm install</code>, nothing to compile on the till, nothing that goes stale between now and the restaurant's third year of using it.</p>
+<h2 id="what-it-does">What it does</h2>
+<table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td><strong>Floor</strong></td><td>Live plan of every room. Seat, move, merge and transfer tables; covers, elapsed time and running total on each; reservations seated straight onto the plan.</td></tr><tr><td><strong>Order</strong></td><td>The carte by course, with modifiers, allergy notes and seat numbers. Fire a course and the kitchen sees it before the captain has put the tablet down.</td></tr><tr><td><strong>Kitchen</strong></td><td>A ticket per course per station, timed, with the ones that are running late brought to the front. Bump, recall, reprint.</td></tr><tr><td><strong>Bills</strong></td><td>Print, split (by seat, by item, or evenly), part-pay across cash, card and UPI, discount with manager approval, void and comp with a reason that is kept.</td></tr><tr><td><strong>Tax</strong></td><td>Service charge and CGST/SGST worked out per line, in whole paise, with the rates and the round-off set in one place.</td></tr><tr><td><strong>Reports</strong></td><td>Today's trading as it happens; the Z report and cash-up at close; thirty days of history; sales by item, by hour, by server and by payment method; a GST summary; CSV export of all of it.</td></tr><tr><td><strong>Book</strong></td><td>Reservations with covers, time, table and a note, carried through to the floor plan.</td></tr><tr><td><strong>Menu</strong></td><td>Add a dish, price it, move it between sections, courses and stations, retire it, and 86 it from anywhere in the building.</td></tr><tr><td><strong>Setup</strong></td><td>The bill header, staff and their PINs, the service charge and tax rates, the rooms and tables, backups, and the live list of terminals.</td></tr></tbody></table>
+<p>Every screen is one of four roles' business — manager, captain, cashier, kitchen — and the server enforces that, not the interface.</p>
+<h2 id="try-it-without-installing-anything">Try it without installing anything</h2>
+<p>There is a demonstration on the web: the whole application, running against a till that lives in your browser tab.</p>
+<p>&gt; <strong><a href="https://vormirtech-ai.github.io/TBC-BILLING/saba/">Open the demonstration →</a></strong> &gt; Sign in as Manager with PIN 1379.</p>
+<p>It is built from this directory by <code>tools/build-site.mjs</code> and published by GitHub Pages. Every screen, every figure and every refusal is the product's own code — <code>tests/till/parity.test.mjs</code> runs a service through both the real server and the browser till and fails if a single paisa differs.</p>
+<p>What it is <strong>not</strong> is a place to run a restaurant. A till is a server with a database on the restaurant's own computer; a web page cannot be one, and the restaurant's bills should not be on the public internet in the first place. The demonstration keeps everything in the tab and forgets it when the tab closes.</p>
+<h2 id="getting-it-running-for-real">Getting it running for real</h2>
+<p><strong>On a restaurant's till</strong> (Linux, systemd, Node 22.5+) — the normal way:</p>
+<pre><code>sudo ./install.sh</code></pre>
+<p><strong>To look at it on a laptop</strong>, with a month of trading and a room mid-service already in it:</p>
+<pre><code>npm run demo        # then open http://localhost:8080, PIN 1379</code></pre>
+<p><strong>Anywhere else</strong>, including in Docker if you prefer it:</p>
+<pre><code>node server/main.js        # or: docker compose up -d</code></pre>
+<p>Each prints the address to open on the tablets, and the manager PIN, once. None of them needs Docker, and none of them needs the website.</p>
+<p>Full instructions, including the network and the printers: <strong><a href="docs/DEPLOYMENT.html">docs/DEPLOYMENT.md</a></strong>.</p>
+<h2 id="running-it-day-to-day">Running it day to day</h2>
+<p>Opening and closing, the Z report, backups, restoring one, adding staff, changing prices, and what to do when something goes wrong: <strong><a href="docs/OPERATIONS.html">docs/OPERATIONS.md</a></strong>.</p>
+<h2 id="taking-it-over">Taking it over</h2>
+<p>The shape of the code, where each decision lives, how to change the tax rules, add a screen or add a role, and the things a future maintainer would otherwise have to find out the hard way: <strong><a href="docs/HANDOVER.html">docs/HANDOVER.md</a></strong>.</p>
+<h2 id="tests">Tests</h2>
+<pre><code>npm test</code></pre>
+<p>Eighty-three cases: the pricing and order maths as pure functions, the API against a real server on a real SQLite database over real HTTP, and the published demonstration held against the product it demonstrates. Nothing is mocked. A point of sale is a thing that takes money; a suite that stubs out the database proves only that the stubs work.</p>
+<pre><code>npm test unit     # the domain, instantly
+npm test api      # a real server per case
+npm test till     # the demonstration, against the real thing</code></pre>
+<h2 id="requirements">Requirements</h2>
+<ul><li>Node 22.5 or newer (22.22 LTS is what the Docker image pins).</li><li>A computer that stays switched on. A mini PC or a Raspberry Pi 5 is plenty.</li><li>A wifi network the tablets can reach it on. It does not need internet.</li></ul>
+<h2 id="licence">Licence</h2>
+<p>Commercial. One licence per restaurant. See <a href="LICENSE.txt">LICENSE.txt</a>.</p>
+    </article>
+  </body>
+</html>

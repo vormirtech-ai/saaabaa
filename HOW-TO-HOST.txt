@@ -1,0 +1,93 @@
+================================================================================
+ SABA — PUTTING THIS WEBSITE ON GITHUB
+================================================================================
+
+ What is in this folder
+ ----------------------
+ A finished website. Nothing to build, nothing to install, no Node, no
+ Actions workflow. Every file is plain HTML, CSS, JavaScript and images.
+
+   index.html     the page about Saba
+   demo/          the live demonstration — the whole application
+   docs/          deployment, operations and handover notes
+   assets/        the mark
+   .nojekyll      tells GitHub Pages to serve the files as they are
+
+ Sign in to the demonstration as Manager with PIN 1379.
+ Captain 2471 · Cashier 3582 · Kitchen 4693.
+
+
+ The quickest way to host it
+ ---------------------------
+ 1. On github.com, click + (top right) → New repository.
+      Name it whatever you like — say  saba-demo
+      Make it Public. Do not tick "Add a README".
+      Click Create repository.
+
+ 2. On the new repository's page, click "uploading an existing file".
+
+ 3. Drag the CONTENTS of this folder in — index.html, the demo folder, the
+    docs folder, the assets folder. Not the folder itself; what is inside it.
+    Then click "Commit changes".
+
+ 4. Go to Settings → Pages.
+      Source:  Deploy from a branch
+      Branch:  main    /  (root)
+      Save.
+
+ 5. Wait a minute, then open:
+
+      https://YOUR-USERNAME.github.io/saba-demo/
+
+    That is the link to send the client.
+
+
+ If a file is missing after uploading
+ ------------------------------------
+ GitHub's drag-and-drop sometimes skips files whose name begins with a dot.
+ If the pages look unstyled, check that .nojekyll made it up; if not, use
+ Add file → Create new file, name it  .nojekyll  and leave it empty.
+
+
+ With git, if you prefer
+ -----------------------
+      cd <this folder>
+      git init -b main
+      git add -A
+      git commit -m "Saba website"
+      git remote add origin https://github.com/YOUR-USERNAME/saba-demo.git
+      git push -u origin main
+
+ Then do step 4 above.
+
+
+ Putting it in a repository you already have
+ -------------------------------------------
+ Drop this folder in as a subfolder — call it  saba  — and it will be served
+ at  https://YOUR-USERNAME.github.io/REPO/saba/  . All the links inside are
+ relative, so it works at any depth without changing anything.
+
+
+================================================================================
+ PLEASE READ: this website is not the till
+================================================================================
+
+ The demonstration runs entirely inside the visitor's browser. It invents a
+ restaurant when the page opens and forgets it when the tab closes. Two
+ people opening the link do not see each other's tables.
+
+ That is on purpose. A real Saba install is a small server with a database,
+ running on a computer inside the restaurant, with the tablets and the
+ kitchen screen all talking to it. GitHub Pages only serves files — it
+ cannot run a server — and a restaurant's bills should not be on the public
+ internet in any case.
+
+ So: use this link to show people. Install the real thing on the
+ restaurant's own computer with  install.sh  , as docs/DEPLOYMENT.html
+ explains.
+
+ The figures are not faked. The demonstration runs the product's own code,
+ and the test suite fails if a single figure on a bill differs between the
+ two.
+
+================================================================================
